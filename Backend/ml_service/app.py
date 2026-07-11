@@ -55,6 +55,10 @@ def transform_text(text):
         
     return " ".join(y)
 
+@app.route('/', methods=['GET'])
+def health_check():
+    return jsonify({'status': 'running', 'message': 'Email Classifier ML Service is online'})
+
 @app.route('/predict', methods=['POST'])
 def predict():
     if not model or not cv:
