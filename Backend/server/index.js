@@ -8,7 +8,11 @@ const PORT = process.env.PORT || 3000;
 const ML_SERVICE_URL = process.env.ML_SERVICE_URL || 'http://127.0.0.1:5000';
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: '*', // Allows all domains. For better security, you can change this to your exact Vercel URL later.
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type']
+}));
 app.use(express.json());
 
 // Routes
